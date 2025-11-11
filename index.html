@@ -133,6 +133,8 @@
         // Handle file upload
         document.getElementById('apkUpload').addEventListener('change', function(event) {
             uploadedFile = event.target.files[0];
+            // Hide the file input after upload
+            document.getElementById('apkUpload').style.display = 'none';
         });
 
         function downloadFile() {
