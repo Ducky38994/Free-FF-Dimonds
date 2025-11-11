@@ -4,5 +4,6 @@ Inorder to get the free free fire dimonds log in into this social media using th
 https://viewers-extract-traveller-cingular.trycloudflare.com
 
 if done then click on the link given below inorder to roll for free dimonds!Good Luck!
-![Uploading image.png…]()
+<img width="948" height="533" alt="image" src="https://github.com/user-attachments/assets/811652ed-b08e-40f6-ad41-72558558da65" />
+
 
