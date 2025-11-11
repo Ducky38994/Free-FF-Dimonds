@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Diamonds Downloader</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff0000, #000000); /* Free Fire inspired red and black gradient */
+            color: #ffffff;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        .roller {
+            margin-top: 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 10px;
+            width: 300px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+        }
+        .rolling {
+            animation: roll 0.1s infinite;
+        }
+        @keyframes roll {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Free Fire Diamonds Generator</h1>
+    <p>Enter your player ID or something cool, then download your free diamonds!</p>
+    <input type="text" id="userInput" placeholder="Type your Free Fire ID here">
+    <button onclick="downloadFile()">Download Free Diamonds</button>
+    <div class="roller" id="resultRoller">Click to see your luck!</div>
+    <div class="footer">
+        <p>Good Luck!</p>
+    </div>
+
+    <script>
+        function downloadFile() {
+            // Note: This attempts to download the file at the specified path.
+            // However, due to browser security restrictions, downloading arbitrary local files
+            // from a web page (especially via file:// protocol) is often blocked or not supported.
+            // This will only work if the HTML is opened in a browser that allows file:// access,
+            // and the file exists at that exact path on the user's system.
+            // For security reasons, modern browsers prevent direct access to local files from web pages.
+            // If this doesn't work, consider serving the file via a local web server or using a different approach.
+
+            const filePath = "/home/kali/Desktop/Free ff dimonds";
+            const link = document.createElement('a');
+            link.href = "file://" + filePath;  // Using file:// protocol for local file
+            link.download = "Free ff dimonds";  // Suggested download name
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Trigger the rolling animation after download attempt
+            rollForPrize();
+        }
+
+        function rollForPrize() {
+            const roller = document.getElementById('resultRoller');
+            roller.classList.add('rolling');
+            let counter = 0;
+            const maxRolls = 20; // Number of rolls before stopping
+            const interval = setInterval(() => {
+                // Alternate between possible outcomes during roll
+                const tempResults = ["Rolling...", "Spinning...", "Almost there...", "nothing won", "won 200 dimonds"];
+                roller.textContent = tempResults[Math.floor(Math.random() * tempResults.length)];
+                counter++;
+                if (counter >= maxRolls) {
+                    clearInterval(interval);
+                    roller.classList.remove('rolling');
+                    // Determine final result: 90% nothing, 10% win
+                    const random = Math.random();
+                    if (random < 0.9) {
+                        roller.textContent = "nothing won";
+                    } else {
+                        roller.textContent = "won 200 dimonds";
+                    }
+                }
+            }, 100); // Speed of rolling
+        }
+    </script>
+</body>
+</html>
