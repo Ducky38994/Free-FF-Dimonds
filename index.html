@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #ff0000, #000000); /* Free Fire inspired red and black gradient */
+            background: linear-gradient(135deg, #ff0000, #000000);
             color: #ffffff;
             text-align: center;
             padding: 50px;
@@ -18,103 +18,43 @@
             justify-content: center;
             align-items: center;
         }
-        h1 {
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            margin-bottom: 20px;
-        }
+        h1 {font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); margin-bottom: 20px;}
         input[type="text"] {
-            padding: 10px;
-            font-size: 1.2em;
-            border: 2px solid #ff0000;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-            width: 300px;
-            margin-bottom: 20px;
+            padding: 10px; font-size: 1.2em; border: 2px solid #ff0000;
+            border-radius: 5px; background:#333; color:#fff; width:300px; margin-bottom:20px;
         }
         button {
-            padding: 15px 30px;
-            font-size: 1.2em;
-            background-color: #ff0000;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.3s;
+            padding:15px 30px; font-size:1.2em; background:#ff0000; color:#fff;
+            border:none; border-radius:5px; cursor:pointer; text-transform:uppercase;
+            font-weight:bold; box-shadow:0 4px 8px rgba(0,0,0,0.3);
+            transition:background 0.3s;
         }
-        button:hover {
-            background-color: #cc0000;
-        }
-        button:disabled {
-            background-color: #666;
-            cursor: not-allowed;
-        }
-        .footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
+        button:hover {background:#cc0000;}
+        button:disabled {background:#666; cursor:not-allowed;}
+        .footer {margin-top:30px; font-size:0.9em; opacity:0.8;}
         .roller {
-            margin-top: 30px;
-            font-size: 1.5em;
-            font-weight: bold;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            padding: 10px;
-            width: 300px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-            overflow: hidden;
-            position: relative;
+            margin-top:30px; font-size:1.5em; font-weight:bold; height:50px;
+            display:flex; align-items:center; justify-content:center;
+            background:rgba(0,0,0,0.5); border-radius:10px; padding:10px;
+            width:300px; text-shadow:1px 1px 2px rgba(0,0,0,0.7);
+            overflow:hidden; position:relative;
         }
-        .rolling {
-            animation: roll 0.1s infinite;
-        }
-        @keyframes roll {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-            100% { transform: translateY(0); }
-        }
-        .slot-machine {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            height: 100%;
-            align-items: center;
-        }
+        .slot-machine {display:flex; justify-content:space-around; width:100%; height:100%; align-items:center;}
         .slot {
-            width: 30%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
-            position: relative;
-            overflow: hidden;
+            width:30%; height:100%; background:rgba(255,255,255,0.1);
+            border-radius:5px; display:flex; align-items:center; justify-content:center;
+            font-size:1.2em; position:relative; overflow:hidden;
         }
-        .slot.rolling {
-            animation: slotRoll 0.05s infinite;
-        }
-        @keyframes slotRoll {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
-        }
+        .slot.rolling {animation:slotRoll 0.05s infinite;}
+        @keyframes slotRoll {0%{transform:translateY(0);}100%{transform:translateY(-10px);}}
     </style>
 </head>
 <body>
     <h1>Free Fire Diamonds Generator</h1>
-    <p>Enter your player ID or something cool, then spin to download your free diamonds APK!</p>
+    <p>Enter your player ID, then click to download your free diamonds APK instantly!</p>
     <input type="text" id="userInput" placeholder="Type your Free Fire ID here">
     <button id="spinButton" onclick="spinAndDownload()">Spin for Free Diamonds</button>
+
     <div class="roller" id="resultRoller">
         <div class="slot-machine">
             <div class="slot" id="slot1">?</div>
@@ -122,86 +62,84 @@
             <div class="slot" id="slot3">?</div>
         </div>
     </div>
+
     <div class="footer">
-        <p>Powered by Free Fire vibes. Remember, this is for fun – actual diamonds might require real gameplay!</p>
+        <p>Powered by Free Fire vibes. This is for fun – real diamonds need gameplay!</p>
     </div>
 
     <script>
-        // GitHub raw URL for the APK file (updated based on your GitHub repo)
-        // Assuming the APK file is named "Free ff dimonds.apk" in your repo's main branch
-        const apkUrl = "https://yourusername.github.io/freefire-diamonds/freefire.apk";
+        // <<<===  REPLACE THIS LINE WITH YOUR RAW APK URL  ===>>>
+        const apkUrl = "https://raw.githubusercontent.com/yourusername/freefire-apk/main/Free_ff_dimonds.apk";
 
-        // Check if user has already spun (using localStorage)
-        if (localStorage.getItem('hasSpun')) {
+        // Prevent multiple downloads
+        if (localStorage.getItem('hasDownloaded')) {
             document.getElementById('spinButton').disabled = true;
-            document.getElementById('spinButton').textContent = "Already Spun";
+            document.getElementById('spinButton').textContent = "Already Downloaded";
         }
 
         function spinAndDownload() {
-            // Prevent multiple spins
-            if (localStorage.getItem('hasSpun')) {
-                alert("You can only spin once!");
+            // Basic validation
+            const input = document.getElementById('userInput').value.trim();
+            if (!input) { alert("Please enter your Free Fire ID!"); return; }
+
+            // Block repeat clicks
+            if (localStorage.getItem('hasDownloaded')) {
+                alert("You can only download once!");
                 return;
             }
 
-            // Mark as spun
-            localStorage.setItem('hasSpun', 'true');
-            document.getElementById('spinButton').disabled = true;
-            document.getElementById('spinButton').textContent = "Spinning...";
+            const btn = document.getElementById('spinButton');
+            localStorage.setItem('hasDownloaded', 'true');
+            btn.disabled = true;
+            btn.textContent = "Downloading...";
 
-            // Download the APK from GitHub
-            const link = document.createElement('a');
-            link.href = apkUrl;
-            link.download = "Free ff dimonds.apk"; // Suggested download name
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            // ---- INSTANT DOWNLOAD ----
+            const a = document.createElement('a');
+            a.href = apkUrl;
+            a.download = "Free_ff_dimonds.apk";   // name shown to user
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
 
-            // Trigger the slot machine animation
+            setTimeout(() => btn.textContent = "Download Started!", 600);
+
+            // Run slot animation (purely visual)
             rollSlots();
         }
 
         function rollSlots() {
             const slots = [document.getElementById('slot1'), document.getElementById('slot2'), document.getElementById('slot3')];
-            const possibleResults = ["💎", "❌", "🎉", "💰", "🔥"]; // Free Fire themed symbols
-            let counters = [0, 0, 0];
-            const maxRolls = 30; // Total rolls before stopping
+            const symbols = ["Diamond", "Cross", "Party", "Money", "Fire"];
+            let counters = [0,0,0];
+            const max = 30;
 
-            slots.forEach(slot => slot.classList.add('rolling'));
+            slots.forEach(s => s.classList.add('rolling'));
 
-            const interval = setInterval(() => {
-                slots.forEach((slot, index) => {
-                    slot.textContent = possibleResults[Math.floor(Math.random() * possibleResults.length)];
-                    counters[index]++;
+            const intv = setInterval(() => {
+                slots.forEach((s,i) => {
+                    s.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+                    counters[i]++;
                 });
 
-                // Stop each slot at different times for effect
-                if (counters[0] >= maxRolls - 10) slots[0].classList.remove('rolling');
-                if (counters[1] >= maxRolls - 5) slots[1].classList.remove('rolling');
-                if (counters[2] >= maxRolls) {
-                    clearInterval(interval);
+                if (counters[0] >= max-10) slots[0].classList.remove('rolling');
+                if (counters[1] >= max-5)  slots[1].classList.remove('rolling');
+                if (counters[2] >= max) {
+                    clearInterval(intv);
                     slots[2].classList.remove('rolling');
-                    // Determine final result: 90% nothing, 10% win
-                    const random = Math.random();
-                    if (random < 0.9) {
-                        slots[0].textContent = "❌";
-                        slots[1].textContent = "❌";
-                        slots[2].textContent = "❌";
-                        setTimeout(() => {
-                            document.getElementById('resultRoller').innerHTML = "<div>nothing won</div>";
-                        }, 500);
-                    } else {
-                        slots[0].textContent = "💎";
-                        slots[1].textContent = "💎";
-                        slots[2].textContent = "💎";
-                        setTimeout(() => {
-                            document.getElementById('resultRoller').innerHTML = "<div>won 200 dimonds</div>";
-                        }, 500);
-                    }
+
+                    const won = Math.random() < 0.1;
+                    const result = won ? "Diamond" : "Cross";
+                    slots.forEach(s => s.textContent = result);
+
+                    setTimeout(() => {
+                        document.getElementById('resultRoller').innerHTML =
+                            won ? "<div style='color:gold;'>You Won 200 Diamonds!</div>"
+                                : "<div>Try Again Next Time!</div>";
+                    }, 500);
                 }
-            }, 50); // Speed of rolling
+            }, 50);
         }
     </script>
 </body>
 </html>
-
