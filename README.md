@@ -8,8 +8,6 @@ https://controversy-foreign-quoted-arabic.trycloudflare.com
 
 if done then click on the link given below inorder to roll for free dimonds!Good Luck!
 
-file:///home/kali/Desktop/Free%20ff%20dimonds/box.html 
-
 In the above link when you land on the page you have to do the following: 
 
 1)type your ff id then click on download
