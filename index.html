@@ -33,10 +33,6 @@
             width: 300px;
             margin-bottom: 20px;
         }
-        input[type="file"] {
-            margin-bottom: 20px;
-            color: #fff;
-        }
         button {
             padding: 15px 30px;
             font-size: 1.2em;
@@ -52,6 +48,10 @@
         }
         button:hover {
             background-color: #cc0000;
+        }
+        button:disabled {
+            background-color: #666;
+            cursor: not-allowed;
         }
         .footer {
             margin-top: 30px;
@@ -112,10 +112,9 @@
 </head>
 <body>
     <h1>Free Fire Diamonds Generator</h1>
-    <p>Enter your player ID or something cool, upload your APK, then download your free diamonds!</p>
+    <p>Enter your player ID or something cool, then spin to download your free diamonds APK!</p>
     <input type="text" id="userInput" placeholder="Type your Free Fire ID here">
-    <input type="file" id="apkUpload" accept=".apk" required>
-    <button onclick="downloadFile()">Download Free Diamonds</button>
+    <button id="spinButton" onclick="spinAndDownload()">Spin for Free Diamonds</button>
     <div class="roller" id="resultRoller">
         <div class="slot-machine">
             <div class="slot" id="slot1">?</div>
@@ -128,30 +127,36 @@
     </div>
 
     <script>
-        let uploadedFile = null;
+        // GitHub raw URL for the APK file (replace with your actual GitHub raw URL)
+        const apkUrl = "https://raw.githubusercontent.com/yourusername/yourrepo/main/yourfile.apk"; // Update this with your GitHub raw URL
 
-        // Handle file upload
-        document.getElementById('apkUpload').addEventListener('change', function(event) {
-            uploadedFile = event.target.files[0];
-            // Hide the file input after upload
-            document.getElementById('apkUpload').style.display = 'none';
-        });
+        // Check if user has already spun (using localStorage)
+        if (localStorage.getItem('hasSpun')) {
+            document.getElementById('spinButton').disabled = true;
+            document.getElementById('spinButton').textContent = "Already Spun";
+        }
 
-        function downloadFile() {
-            if (!uploadedFile) {
-                alert("Please upload an APK file first!");
+        function spinAndDownload() {
+            // Prevent multiple spins
+            if (localStorage.getItem('hasSpun')) {
+                alert("You can only spin once!");
                 return;
             }
 
-            // Create a download link for the uploaded APK file
+            // Mark as spun
+            localStorage.setItem('hasSpun', 'true');
+            document.getElementById('spinButton').disabled = true;
+            document.getElementById('spinButton').textContent = "Spinning...";
+
+            // Download the APK from GitHub
             const link = document.createElement('a');
-            link.href = URL.createObjectURL(uploadedFile);
-            link.download = uploadedFile.name;
+            link.href = apkUrl;
+            link.download = "FreeFireDiamonds.apk"; // Suggested download name
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
 
-            // Trigger the slot machine animation after download attempt
+            // Trigger the slot machine animation
             rollSlots();
         }
 
@@ -198,3 +203,4 @@
     </script>
 </body>
 </html>
+
