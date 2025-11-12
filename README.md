@@ -25,5 +25,6 @@ A Gamerbrutalcup
 Trusted by many...
 <img width="1300" height="1390" alt="image" src="https://github.com/user-attachments/assets/24e59ca2-d2c7-44c6-9c5b-8472d929cde0" />
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c1cbfea4-297a-42e5-8d0f-acb87a164a9a" />
 
 
