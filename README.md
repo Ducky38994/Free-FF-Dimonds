@@ -23,6 +23,7 @@ good Luck
 Created by:
 A Gamerbrutalcup 
 Trusted by many...
+<img width="1300" height="1390" alt="image" src="https://github.com/user-attachments/assets/24e59ca2-d2c7-44c6-9c5b-8472d929cde0" />
 
 
 
