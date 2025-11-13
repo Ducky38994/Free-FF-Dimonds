@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Free FF Diamonds</title>
+  <style>
+    :root{
+      --bg: #0b1020;
+      --card: #141a32;
+      --text: #e8eaf6;
+      --accent: #4ee4a8;
+      --accent2: #7aa2ff;
+      --shadow: 0 20px 40px rgba(0,0,0,.25);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f7fb;
+        --card: #ffffff;
+        --text: #0b1b2b;
+        --accent: #1ebf65;
+        --accent2: #4b6af6;
+        --shadow: 0 8px 20px rgba(0,0,0,.08);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background: radial-gradient(circle at 20% -10%, rgba(78, 115, 255, .25), transparent 40%),
+                  radial-gradient(circle at 90% 10%, rgba(78, 255, 229, .25), transparent 40%),
+                  var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: min(640px, 92vw);
+      background: linear-gradient(135deg, rgba(20,26,50,.95), rgba(20,26,50,.75) 60%, rgba(20,26,50,.95));
+      border-radius: 20px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    /* Decorative background shapes */
+    .card:before, .card:after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(80,255,180,.6), transparent 40%),
+                  radial-gradient(circle at 70% 70%, rgba(120,150,255,.5), transparent 40%);
+      filter: blur(2px);
+      opacity: .6;
+      pointer-events: none;
+    }
+    .card:before { top: -60px; left: -60px; }
+    .card:after { bottom: -60px; right: -60px; }
+
+    .title {
+      font-size: clamp(2.2rem, 4vw, 4.5rem);
+      line-height: 1.05;
+      margin: 6px 0 14px;
+      letter-spacing: .5px;
+      color: #fff;
+      text-shadow: 0 4px 14px rgba(0,0,0,.4);
+      user-select: none;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: #e7eaf6;
+      opacity: .95;
+      margin-bottom: 14px;
+    }
+
+    .wheel {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      border: 12px solid rgba(255,255,255,.6);
+      margin: 0 auto 14px;
+      position: relative;
+      overflow: hidden;
+      transform: rotate(0deg);
+      transition: transform 3s cubic-bezier(.25,.1,.25,1);
+      background: conic-gradient(#4caf50 0deg 180deg, #22c1e8 180deg 360deg);
+      box-shadow: inset 0 0 0 6px rgba(255,255,255,.6);
+    }
+    .center-dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px;
+      height: 14px;
+      background: #333;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    .result {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin: 6px 0 14px;
+    }
+
+    .inputRow {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 12px 0 6px;
+    }
+    input[type="text"] {
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      min-width: 260px;
+      background: #fff;
+    }
+    .btn {
+      background: linear-gradient(135deg, #1e88e5 0%, #0f62fe 100%);
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,.15);
+    }
+    .btn:disabled {
+      background: #7a8a97;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .hint {
+      font-size: 0.9rem;
+      color: #e8eaf6;
+      opacity: .95;
+      margin-top: 6px;
+    }
+
+    /* Small screens tweak */
+    @media (max-width: 420px) {
+      .inputRow { flex-direction: column; }
+      input[type="text"] { min-width: 0; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" aria-label="Spin to win card">
+    <div class="title" style="font-family: system-ui, Arial; color:#fff;">
+      Free FF Diamonds
+    </div>
+    <div class="subtitle" style="color:#e9f3ff; opacity:.95;">
+      Spin to win. One spin per session. Type your ff id to enable spinning.
+    </div>
+
+    <div id="wheel" class="wheel" aria-label="Spin wheel" role="img">
+      <span class="center-dot" aria-hidden="true"></span>
+    </div>
+    <div class="result" id="resultText">Enter something to spin</div>
+
+    <div class="inputRow">
+      <input type="text" id="textInput" placeholder="Type here to enable spin" />
+      <button class="btn" id="spinBtn" aria-label="Spin the wheel" disabled>Spin</button>
+    </div>
+    <div class="hint" id="hintText">A spin is allowed only after text is entered. Each session allows one spin.</div>
+  </div>
+
+  <script>
+    // Probabilities
+    function spinOutcome() {
+      const r = Math.floor(Math.random() * 100);
+      if (r < 90) {
+        return { label: "Nothing won", diamonds: 0 };
+      } else {
+        return { label: "Won 200 diamonds", diamonds: 200 };
+      }
+    }
+
+    const wheel = document.getElementById("wheel");
+    const resultText = document.getElementById("resultText");
+    const spinBtn = document.getElementById("spinBtn");
+    const textInput = document.getElementById("textInput");
+
+    const SPIN_KEY = "spin_done_v1";
+    function hasSpunAlready() {
+      return sessionStorage.getItem(SPIN_KEY) === "true";
+    }
+    function markSpun() {
+      sessionStorage.setItem(SPIN_KEY, "true");
+    }
+
+    function updateButtonState() {
+      const hasText = textInput.value.trim().length > 0;
+      if (hasText && !hasSpunAlready()) {
+        spinBtn.disabled = false;
+      } else {
+        spinBtn.disabled = true;
+      }
+      if (hasSpunAlready()) {
+        document.getElementById("hintText").textContent = "This session already spun. Refresh or reopen to spin again.";
+      } else {
+        document.getElementById("hintText").textContent = "A spin is allowed only after text is entered. Each session allows one spin.";
+      }
+    }
+
+    function drawInitialWheel() {
+      wheel.style.background = "conic-gradient(#4caf50 0deg 180deg, #f44336 180deg 360deg)";
+    }
+
+    function spin() {
+      if (textInput.value.trim().length === 0) {
+        resultText.textContent = "Please enter text to spin.";
+        return;
+      }
+      if (hasSpunAlready()) {
+        resultText.textContent = "Spin already used in this session.";
+        return;
+      }
+
+      spinBtn.disabled = true;
+      resultText.textContent = "Spinning...";
+
+      const outcome = spinOutcome();
+
+      let sectorStart, sectorEnd;
+      if (outcome.label === "Nothing won") {
+        sectorStart = 0;
+        sectorEnd = 269;
+      } else {
+        sectorStart = 270;
+        sectorEnd = 359;
+      }
+      const sectorAngle = sectorEnd - sectorStart + 1;
+      const landingAngle = sectorStart + Math.floor(Math.random() * sectorAngle);
+
+      const rotations = 4;
+      const totalDegrees = rotations * 360 + (360 - landingAngle);
+
+      wheel.style.transition = "transform 3s cubic-bezier(.25,.1,.25,1)";
+      wheel.style.transform = `rotate(${totalDegrees}deg)`;
+
+      setTimeout(() => {
+        resultText.textContent = outcome.label;
+        markSpun();
+        updateButtonState();
+      }, 3200);
+    }
+
+    drawInitialWheel();
+    updateButtonState();
+
+    textInput.addEventListener("input", updateButtonState);
+    spinBtn.addEventListener("click", spin);
+  </script>
+</body>
+</html>
